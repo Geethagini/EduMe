@@ -21,7 +21,7 @@ public class Registration : MonoBehaviour
         WWWForm form= new WWWForm();
         form.AddField("name", nameField.text);
         form.AddField("password", passwordField.text);
-        form.AddField("age", passwordField.text);
+        form.AddField("age", age.text);
         WWW www= new WWW("http://localhost/gameone/RegisterUser.php",form);
         yield return www;
         if(www.text[0]=='0')
