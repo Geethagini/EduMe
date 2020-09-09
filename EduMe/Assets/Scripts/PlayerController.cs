@@ -9,7 +9,7 @@ public class PlayerController : MonoBehaviour
     public static PlayerController instance;
     public float walkSpeed;
 	public bool grounded;
-    public float jumpForce=750f;
+    public float jumpForce=300f;
     public UIManager uIManager;
 
     private Rigidbody2D rbd;
@@ -68,6 +68,7 @@ public class PlayerController : MonoBehaviour
        
         form.AddField("name", DBManager.username);
         form.AddField("score",DBManager.score);
+        form.AddField("coins",DBManager.coins);
         WWW www= new WWW("http://localhost/gameone/savedata.php",form);
         yield return www;
         if(www.text[0]=='0')
@@ -129,12 +130,12 @@ DBManager.LogOut();
               Jump();
         }
 
-        if(transform.position.y <=-7f)
-        {
-            anim.SetTrigger("Death");
-            uIManager.OnGameOver();
+        //if(transform.position.y <=-7f)
+       // {
+           // anim.SetTrigger("Death");
+          //  uIManager.OnGameOver();
            
-        }
+        //}
     }
 
     public void Jump ()
@@ -154,6 +155,7 @@ DBManager.LogOut();
                 SoundManager.instance.PlayCoinSound();
             CoinManager.instance.UpdateCoin();
             DBManager.score=DBManager.score+50;
+            
 		scoreDisplay.text="Score:"+DBManager.score;
 		  Destroy(target.gameObject);
 	  }

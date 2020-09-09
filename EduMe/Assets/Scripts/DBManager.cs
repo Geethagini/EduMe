@@ -9,6 +9,7 @@ public class DBManager : MonoBehaviour
 {
     public static string username;
     public static int score;
+     public static int coins;
      public static float x;
      public static float y;
      public static float z;

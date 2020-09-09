@@ -22,6 +22,6 @@ public class CoinManager : MonoBehaviour {
 	public void UpdateCoin()
 	{
 		coinCount=coinCount +1;
-		
+		DBManager.coins=DBManager.coins+1;
 	}
 }
