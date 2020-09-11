@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 04, 2020 at 06:37 PM
+-- Generation Time: Sep 11, 2020 at 06:12 PM
 -- Server version: 10.1.28-MariaDB
 -- PHP Version: 7.1.10
 
@@ -64,8 +64,8 @@ CREATE TABLE `login` (
 --
 
 INSERT INTO `login` (`login_id`, `player_id`, `username`, `hash`, `salt`) VALUES
-(40, 28, 'hasini', '$5$rounds=5000$steamedhamshasin$kqFBd3V//OADw/Gw58zzhh0R4xotjGmzGJCw15RLhc3', '$5$rounds=5000$steamedhamshasini$'),
-(47, 31, 'hasara', '$5$rounds=5000$steamedhamshasar$oKJhn1iwzevCIteTQU9NGJGDiIHXr13YMZteC2i6wuB', '$5$rounds=5000$steamedhamshasara$');
+(1, 1, 'hasini', '$5$rounds=5000$steamedhamshasin$kqFBd3V//OADw/Gw58zzhh0R4xotjGmzGJCw15RLhc3', '$5$rounds=5000$steamedhamshasini$'),
+(2, 2, 'hasara', '$5$rounds=5000$steamedhamshasar$oKJhn1iwzevCIteTQU9NGJGDiIHXr13YMZteC2i6wuB', '$5$rounds=5000$steamedhamshasara$');
 
 -- --------------------------------------------------------
 
@@ -86,8 +86,8 @@ CREATE TABLE `players` (
 --
 
 INSERT INTO `players` (`id`, `username`, `age`, `hash`, `salt`) VALUES
-(28, 'hasini', 13, '$5$rounds=5000$steamedhamshasin$kqFBd3V//OADw/Gw58zzhh0R4xotjGmzGJCw15RLhc3', '$5$rounds=5000$steamedhamshasini$'),
-(31, 'hasara', 12, '$5$rounds=5000$steamedhamshasar$oKJhn1iwzevCIteTQU9NGJGDiIHXr13YMZteC2i6wuB', '$5$rounds=5000$steamedhamshasara$');
+(1, 'hasini', 12, '$5$rounds=5000$steamedhamshasin$kqFBd3V//OADw/Gw58zzhh0R4xotjGmzGJCw15RLhc3', '$5$rounds=5000$steamedhamshasini$'),
+(2, 'hasara', 14, '$5$rounds=5000$steamedhamshasar$oKJhn1iwzevCIteTQU9NGJGDiIHXr13YMZteC2i6wuB', '$5$rounds=5000$steamedhamshasara$');
 
 -- --------------------------------------------------------
 
@@ -96,9 +96,19 @@ INSERT INTO `players` (`id`, `username`, `age`, `hash`, `salt`) VALUES
 --
 
 CREATE TABLE `questions` (
-  `question_id` int(11) NOT NULL,
-  `question_desc` varchar(100) NOT NULL
+  `question_id` varchar(15) NOT NULL,
+  `question_desc` varchar(100) NOT NULL,
+  `answer` int(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `questions`
+--
+
+INSERT INTO `questions` (`question_id`, `question_desc`, `answer`) VALUES
+('a01', 'You have 20 coins.Your mother give you 10 coins. How many coins you have now.', 30),
+('a02', 'You have 15 coins.Your mother give you 20 coins. How many coins you have now.', 35),
+('a03', '10 + 30', 30);
 
 -- --------------------------------------------------------
 
@@ -121,8 +131,8 @@ CREATE TABLE `score_board` (
 --
 
 INSERT INTO `score_board` (`score_id`, `player_id`, `score`, `coins`, `x`, `y`, `z`) VALUES
-(3, 28, 200, 0, 24, 3, 0),
-(10, 31, 50, 0, 0, 0, 0);
+(1, 1, 250, 0, 53, 13, 0),
+(2, 2, 1050, 21, 68, -4, 0);
 
 --
 -- Indexes for dumped tables
@@ -185,29 +195,29 @@ ALTER TABLE `levels`
 -- AUTO_INCREMENT for table `login`
 --
 ALTER TABLE `login`
-  MODIFY `login_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
+  MODIFY `login_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `players`
 --
 ALTER TABLE `players`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
-
---
--- AUTO_INCREMENT for table `questions`
---
-ALTER TABLE `questions`
-  MODIFY `question_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `score_board`
 --
 ALTER TABLE `score_board`
-  MODIFY `score_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `score_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- Constraints for dumped tables
 --
+
+--
+-- Constraints for table `login`
+--
+ALTER TABLE `login`
+  ADD CONSTRAINT `test2` FOREIGN KEY (`login_id`) REFERENCES `players` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `score_board`

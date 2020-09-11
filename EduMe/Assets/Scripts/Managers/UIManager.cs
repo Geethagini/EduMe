@@ -9,7 +9,7 @@ public class UIManager : MonoBehaviour
     public static UIManager instance;
     public GameObject gameOverPanel;
     public GameObject levelClearPanel;
-      public GameObject questionpanel;
+    public GameObject questionpanel;
     void start()
     {
         gameOverPanel.SetActive(false);

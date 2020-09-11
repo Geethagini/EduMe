@@ -18,7 +18,11 @@ public class Login : MonoBehaviour
         StartCoroutine(LoginUser());
     }
 
-    
+    public void OnClickRegister()
+    {
+        
+            UnityEngine.SceneManagement.SceneManager.LoadScene(0);
+    }
 
     public  IEnumerator LoginUser()
     {

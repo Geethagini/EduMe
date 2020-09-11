@@ -16,7 +16,13 @@ public class Registration : MonoBehaviour
         StartCoroutine(Register());
     }
 
-  public  IEnumerator Register()
+    public void OnClickLogin()
+    {
+        
+            UnityEngine.SceneManagement.SceneManager.LoadScene(1);
+    }
+
+    public  IEnumerator Register()
     {
         WWWForm form= new WWWForm();
         form.AddField("name", nameField.text);
@@ -34,7 +40,7 @@ public class Registration : MonoBehaviour
             Debug.Log("User creation failed. Error #" +www.text);
         }
     }
-
+   
     public void VerifyInputs()
     {
         submitButton.interactable=(nameField.text.Length>=4  && passwordField.text.Length>=5);
