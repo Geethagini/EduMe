@@ -14,7 +14,9 @@ if ($con->connect_error) {
 $username= $_POST["name"];
 $newscore= $_POST["score"];
 $coins= $_POST["coins"];
-
+$level= $_POST["level"];
+$the_level= $_POST["the_level"];
+$health= $_POST["health"];
 
 // Create connection
 
@@ -32,7 +34,7 @@ if(mysqli_num_rows($namecheck)!=1)
 }
 
 
-$updatequery="UPDATE score_board  JOIN players ON score_board.player_id = players.id SET score_board.score ='$newscore',score_board.coins ='$coins' WHERE players.username='".$username."';";
+$updatequery="UPDATE score_board  JOIN players ON score_board.player_id = players.id SET score_board.score ='$newscore',score_board.coins ='$coins',score_board.level_id ='$level',score_board.the_level  ='$coins',players.health  ='$health' WHERE players.username='".$username."';";
 mysqli_query($con,$updatequery) or die("7:Save query failed");
 echo "0";
 

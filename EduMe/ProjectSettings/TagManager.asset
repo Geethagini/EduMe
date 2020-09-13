@@ -9,6 +9,7 @@ TagManager:
   - Spike
   - friend1
   - message
+  - health
   layers:
   - Default
   - TransparentFX

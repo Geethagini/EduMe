@@ -33,11 +33,14 @@ public class Login : MonoBehaviour
         yield return www;
         if(www.text[0]=='0')
         {
-            DBManager.username=nameField.text;
-            DBManager.score=int.Parse(www.text.Split('\t')[1]);
-             DBManager.x=float.Parse(www.text.Split('\t')[2]);
-              DBManager.y=float.Parse(www.text.Split('\t')[3]);
+               DBManager.username=nameField.text;
+               DBManager.score=int.Parse(www.text.Split('\t')[1]);
+               DBManager.x=float.Parse(www.text.Split('\t')[2]);
+               DBManager.y=float.Parse(www.text.Split('\t')[3]);
                DBManager.z=float.Parse(www.text.Split('\t')[4]);
+               DBManager.level=int.Parse(www.text.Split('\t')[5]);
+               DBManager.the_level=int.Parse(www.text.Split('\t')[6]);
+               DBManager.health=int.Parse(www.text.Split('\t')[7]);
             UnityEngine.SceneManagement.SceneManager.LoadScene(2);
         }
         else

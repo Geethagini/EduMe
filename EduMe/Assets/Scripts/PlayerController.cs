@@ -69,6 +69,9 @@ public class PlayerController : MonoBehaviour
         form.AddField("name", DBManager.username);
         form.AddField("score",DBManager.score);
         form.AddField("coins",DBManager.coins);
+        form.AddField("level",DBManager.level);
+        form.AddField("the_level",DBManager.the_level);
+        form.AddField("health",DBManager.health);
         WWW www= new WWW("http://localhost/gameone/savedata.php",form);
         yield return www;
         if(www.text[0]=='0')
@@ -162,9 +165,11 @@ DBManager.LogOut();
       else if(target.gameObject.tag=="Spike")
       {
             if (SoundManager.instance != null)
-                SoundManager.instance.PlayOverSound();
-            anim.SetTrigger("Death");
-          uIManager.OnGameOver();
+                SoundManager.instance.enemySound();
+                PlayerLife.health=DBManager.health-1;
+                DBManager.health=PlayerLife.health;
+            
+         
       }
 
         else if (target.gameObject.name == "Door")

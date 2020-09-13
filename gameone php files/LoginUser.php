@@ -38,11 +38,11 @@ if($hash!=$loginhash)
     echo "6: Incorrect password";
     exit();
 }
-$namecheckquery2 = "SELECT score_board.score, score_board.x, score_board.y,score_board.z FROM score_board INNER JOIN players ON score_board.player_id=players.id WHERE players.username= '".$username."'; ";;
+$namecheckquery2 = "SELECT score_board.score, score_board.x, score_board.y,score_board.z,score_board.level_id,score_board.the_level,players.health   FROM score_board INNER JOIN players ON score_board.player_id=players.id WHERE players.username= '".$username."'; ";;
 
 $namecheck2=mysqli_query($con, $namecheckquery2) or die("2: Name check query failed");
 $existinginfo=mysqli_fetch_assoc($namecheck2);
-echo "0\t".$existinginfo["score"]."\t".$existinginfo["x"]."\t".$existinginfo["y"]."\t".$existinginfo["z"];
+echo "0\t".$existinginfo["score"]."\t".$existinginfo["x"]."\t".$existinginfo["y"]."\t".$existinginfo["z"]."\t".$existinginfo["level_id"]."\t".$existinginfo["the_level"]."\t".$existinginfo["health"];
     
     
      

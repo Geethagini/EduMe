@@ -13,6 +13,7 @@ public class SoundManager : MonoBehaviour
     public AudioClip gameOver;
     public AudioClip levelComplete;
     public AudioClip coinClip;
+    public AudioClip enemy;
 
 
 
@@ -57,6 +58,12 @@ public class SoundManager : MonoBehaviour
     public void levelcomplete()
     {
         sfxSource.clip = levelComplete;
+        sfxSource.Play();
+    }
+
+    public void enemySound()
+    {
+        sfxSource.clip = enemy;
         sfxSource.Play();
     }
 

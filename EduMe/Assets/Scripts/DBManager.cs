@@ -13,6 +13,9 @@ public class DBManager : MonoBehaviour
      public static float x;
      public static float y;
      public static float z;
+    public static int level;
+    public static int the_level;
+    public static int health;
 
     public static bool LoggedIn{ get { return username != null; }}
 

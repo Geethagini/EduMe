@@ -2219,6 +2219,7 @@ MonoBehaviour:
   gameOver: {fileID: 8300000, guid: 0e75e6a9908b6d849a5ee131fbbdba18, type: 3}
   levelComplete: {fileID: 8300000, guid: 1e48c739d67a8eb44bf3757d453d8e58, type: 3}
   coinClip: {fileID: 8300000, guid: 1d66e486cc81dd8438d71932d3a8c266, type: 3}
+  enemy: {fileID: 8300000, guid: 71f25c16a7d25604d88b00f7ba2d7f7e, type: 3}
 --- !u!4 &1964001018
 Transform:
   m_ObjectHideFlags: 0

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 11, 2020 at 06:12 PM
+-- Generation Time: Sep 13, 2020 at 08:44 PM
 -- Server version: 10.1.28-MariaDB
 -- PHP Version: 7.1.10
 
@@ -78,16 +78,17 @@ CREATE TABLE `players` (
   `username` varchar(15) NOT NULL,
   `age` int(11) DEFAULT NULL,
   `hash` varchar(100) NOT NULL,
-  `salt` varchar(100) NOT NULL
+  `salt` varchar(100) NOT NULL,
+  `health` int(11) NOT NULL DEFAULT '3'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `players`
 --
 
-INSERT INTO `players` (`id`, `username`, `age`, `hash`, `salt`) VALUES
-(1, 'hasini', 12, '$5$rounds=5000$steamedhamshasin$kqFBd3V//OADw/Gw58zzhh0R4xotjGmzGJCw15RLhc3', '$5$rounds=5000$steamedhamshasini$'),
-(2, 'hasara', 14, '$5$rounds=5000$steamedhamshasar$oKJhn1iwzevCIteTQU9NGJGDiIHXr13YMZteC2i6wuB', '$5$rounds=5000$steamedhamshasara$');
+INSERT INTO `players` (`id`, `username`, `age`, `hash`, `salt`, `health`) VALUES
+(1, 'hasini', 12, '$5$rounds=5000$steamedhamshasin$kqFBd3V//OADw/Gw58zzhh0R4xotjGmzGJCw15RLhc3', '$5$rounds=5000$steamedhamshasini$', 1),
+(2, 'hasara', 14, '$5$rounds=5000$steamedhamshasar$oKJhn1iwzevCIteTQU9NGJGDiIHXr13YMZteC2i6wuB', '$5$rounds=5000$steamedhamshasara$', 3);
 
 -- --------------------------------------------------------
 
@@ -123,16 +124,18 @@ CREATE TABLE `score_board` (
   `coins` int(100) NOT NULL,
   `x` int(100) NOT NULL,
   `y` int(100) NOT NULL,
-  `z` int(100) NOT NULL
+  `z` int(100) NOT NULL,
+  `level_id` int(11) NOT NULL DEFAULT '1',
+  `the_level` int(11) NOT NULL DEFAULT '1'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `score_board`
 --
 
-INSERT INTO `score_board` (`score_id`, `player_id`, `score`, `coins`, `x`, `y`, `z`) VALUES
-(1, 1, 250, 0, 53, 13, 0),
-(2, 2, 1050, 21, 68, -4, 0);
+INSERT INTO `score_board` (`score_id`, `player_id`, `score`, `coins`, `x`, `y`, `z`, `level_id`, `the_level`) VALUES
+(1, 1, 500, 3, 75, 7, 0, 1, 3),
+(2, 2, 550, 1, 68, -4, 0, 1, 1);
 
 --
 -- Indexes for dumped tables
