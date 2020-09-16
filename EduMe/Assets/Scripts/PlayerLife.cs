@@ -6,7 +6,7 @@ public class PlayerLife : MonoBehaviour
 {
     public GameObject heart1,heart2,heart3,gameOver;
     public static int health;
-    private Animator anim;
+   
     void Start()
     {
         health=DBManager.health;
@@ -19,8 +19,6 @@ public class PlayerLife : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       if(health>3)
-       health=3;
 
        switch(health){
            case 3:
@@ -43,8 +41,6 @@ public class PlayerLife : MonoBehaviour
            heart2.gameObject.SetActive(false);
            heart3.gameObject.SetActive(false);
            gameOver.gameObject.SetActive(true);
-           Time.timeScale=0;
-           anim.SetTrigger("Death");
            break;
        } 
     }

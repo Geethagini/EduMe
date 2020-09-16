@@ -10,6 +10,7 @@ TagManager:
   - friend1
   - message
   - health
+  - turn
   layers:
   - Default
   - TransparentFX

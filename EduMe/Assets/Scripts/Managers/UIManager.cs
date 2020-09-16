@@ -13,6 +13,7 @@ public class UIManager : MonoBehaviour
     void start()
     {
         gameOverPanel.SetActive(false);
+        levelClearPanel.SetActive(false);
         instance= this;
         
         
@@ -20,10 +21,14 @@ public class UIManager : MonoBehaviour
 
     
     public void OnClickRetry()
-    {
-        Time.timeScale=1;
+    { 
         if (SoundManager.instance != null)
             SoundManager.instance.PlayButtonPressSound();
+            Destroy(gameOverPanel);
+            DBManager.score=0;
+            DBManager.coins=0;
+            DBManager.health=3;
+            
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
     public void OnClickMain()
