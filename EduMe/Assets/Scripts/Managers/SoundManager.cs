@@ -14,6 +14,8 @@ public class SoundManager : MonoBehaviour
     public AudioClip levelComplete;
     public AudioClip coinClip;
     public AudioClip enemy;
+    public AudioClip correct;
+    public AudioClip wrong;
 
 
 
@@ -64,6 +66,17 @@ public class SoundManager : MonoBehaviour
     public void enemySound()
     {
         sfxSource.clip = enemy;
+        sfxSource.Play();
+    }
+
+    public void correctSound()
+    {
+        sfxSource.clip = correct;
+        sfxSource.Play();
+    }
+    public void wrongSound()
+    {
+        sfxSource.clip = wrong;
         sfxSource.Play();
     }
 
